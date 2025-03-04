@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Max Powerful Anime Repository</title>
+    <link rel="styleSheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Welcome to Max Powerful Anime Repository</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#anime-list">Anime List</a></li>
+        </ul>
+      </nav>
+      <section id="home">
+        <p>Welcome to our repository of the most powerful anime. Here, you can find a list of anime known for their powerful characters.</p>
+      </section>
+      <section id="anime-list">
+        <h2>List of Powerful Anime</h2>
+        <ul id="anime-list-items"></ul>
+      </section>
+    </div>
+    <script>
+      fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+          const listItems = document.getElementById('anime-list-items');
+          data.anime.forEach(anime => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${anime.name}</strong>: ${anime.description}`
+            listItems.appendChild(li);
+          });
+        })
+        .catch(error => {
+          console.log('Error loading data:', error);
+        });
+    </script>
+  </body>
+</html>
