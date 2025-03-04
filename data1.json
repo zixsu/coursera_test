@@ -1,0 +1,36 @@
+{
+  "anime": [
+    {
+      "name": "One-Punch Man",
+      "description": "Saitama, a superhero who can defeat any opponent with a single punch."
+    },
+    {
+      "name": "Dragon Ball Z",
+      "description": "Son Goku and his friends fight powerful villains across the universe."
+    },
+    {
+      "name": "Naruto Shippuden",
+      "description": "Naruto Uzumaki becomes the strongest ninja by mastering the Nine-Tailed Fox."
+    },
+    {
+      "name": "Bleach",
+      "description": "Ichigo Kurosaki gains the powers of a Soul Reaper and battles powerful foes."
+    },
+    {
+      "name": "Attack on Titan",
+      "description": "Eren Yeager and his friends fight against Titans, giant creatures."
+    },
+    {
+      "name": "Fullmetal Alchemist: Brotherhood",
+      "description": "Brothers Edward and Alphonse Elric search for the Philosopher's Stone."
+    },
+    {
+      "name": "Hunter x Hunter",
+      "description": "Gon Freecss and his friends face powerful opponents in their adventures."
+    },
+    {
+      "name": "My Hero Academia",
+      "description": "Izuku Midoriya inherits the powerful quirk One For All and becomes a hero, facing off against villains with their own formidable powers."
+    }
+  ]
+}
