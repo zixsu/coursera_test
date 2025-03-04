@@ -1,56 +1,41 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-{% seo %}
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-    {% include head-custom.html %}
+    <title>Max Powerful Anime Repository</title>
+    <link rel="styleSheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="wrapper">
+    <div class="container">
       <header>
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
-
-        {% if site.logo %}
-          <img src="{{site.logo | relative_url}}" alt="Logo" />
-        {% endif %}
-
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
-
-        {% if site.github.is_project_page %}
-        <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
-        {% endif %}
-
-        {% if site.github.is_user_page %}
-        <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
-        {% endif %}
-
-        {% if site.show_downloads %}
-        <ul class="downloads">
-          <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
-          <li><a href="{{ site.github.tar_url }}">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
-        </ul>
-        {% endif %}
+        <h1>Welcome to Max Powerful Anime Repository</h1>
       </header>
-      <section>
-
-      {{ content }}
-
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#anime-list">Anime List</a></li>
+        </ul>
+      </nav>
+      <section id="home">
+        <p>Welcome to our repository of the most powerful anime. Here, you can find a list of anime known for their powerful characters.</p>
       </section>
-      <footer>
-        {% if site.github.is_project_page %}
-        <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+      <section id="anime-list">
+        <h2>List of Powerful Anime</h2>
+        <ul id="anime-list-items"></ul>
+      </section>
     </div>
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script>
+      fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+          const listItems = document.getElementById('anime-list-items');
+          data.anime.forEach(anime => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${anime.name}</strong>: ${anime.description}`
+            listItems.appendChild(li);
+          });
+        })
+        .catch(error => {
+          console.log('Error loading data:', error);
+        });
+    </script>
   </body>
 </html>
